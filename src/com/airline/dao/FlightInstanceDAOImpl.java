@@ -54,7 +54,7 @@ public class FlightInstanceDAOImpl {
 	public FlightInstanceDO getFlight(String flightNumber) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(FlightInstanceDO.class);
-		criteria.add(Restrictions.eq("id", flightNumber));
+		criteria.add(Restrictions.eq("id", Integer.parseInt(flightNumber)));
 		criteria.setFetchSize(1);
 		FlightInstanceDO flightInstanceDO = (FlightInstanceDO) criteria.uniqueResult();
 		return flightInstanceDO;
